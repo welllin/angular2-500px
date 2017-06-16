@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'app/core/services/api.service';
 declare var $: any;
 
 @Component({
@@ -7,9 +8,13 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor() { }
+  constructor(
+    private apiService: ApiService
+  ) { }
 
   ngOnInit() {
-    
+    this.apiService.search('cat').subscribe((data) => {
+      console.log(data);
+    })
   }
 }
