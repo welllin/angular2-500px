@@ -12,7 +12,9 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  private term: string;
   private data: IData[];
+  private loading = false;
 
   constructor(
     private apiService: ApiService
@@ -22,9 +24,16 @@ export class AppComponent implements OnInit {
 
   }
 
-  search(term: string): any {
-    this.apiService.search(term).subscribe((data) => {
-      return data;
-    });
+  search(): any {
+    if (this.term) {
+      this.data = [];
+      this.loading = true;
+
+      this.apiService.search(this.term).subscribe((data) => {
+        this.data = data;
+        this.loading = false;
+        console.log(data);
+      });
+    }
   }
 }

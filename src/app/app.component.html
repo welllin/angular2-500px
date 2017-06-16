@@ -1,112 +1,31 @@
-<div class="ui inverted huge borderless fixed fluid menu">
+<div class="ui inverted huge borderless fluid menu">
   <div class="ui container">
-    <a class="header item">Photo Bomb</a>
+    <a class="header item" href="/">Photo Bomb</a>
     <div class="right menu">
       <div class="item">
         <div class="ui small input">
-          <input placeholder="Search..." (click)="search()">
+          <input placeholder="Search..." [(ngModel)]="term" >
+          <button class="ui button" (click)="search()">
+            <i class="search icon"></i>
+            Search
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="ui basic segment main">
+<div class="ui basic segment main" [ngClass]="{'loading': loading}">
   <div class="ui container">
-    <div class="ui four cards">
-      <div class="card">
-        <div class="content">
-          <div class="right floated meta">14h</div>
-          <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/large/jenny.jpg"> Elliot
-        </div>
-        <div class="image">
-          <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart outline like icon"></i>
-            17 likes
-          </span>
-          <i class="comment icon"></i>
-          3 comments
-        </div>
-        <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
+    <div class="ui message" *ngIf="!data">
+      <div class="header">
+        Instruction
       </div>
-      <div class="card">
-        <div class="content">
-          <div class="right floated meta">14h</div>
-          <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/large/jenny.jpg"> Elliot
-        </div>
-        <div class="image">
-          <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart outline like icon"></i>
-            17 likes
-          </span>
-          <i class="comment icon"></i>
-          3 comments
-        </div>
-        <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="right floated meta">14h</div>
-          <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/large/jenny.jpg"> Elliot
-        </div>
-        <div class="image">
-          <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart outline like icon"></i>
-            17 likes
-          </span>
-          <i class="comment icon"></i>
-          3 comments
-        </div>
-        <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="content">
-          <div class="right floated meta">14h</div>
-          <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/large/jenny.jpg"> Elliot
-        </div>
-        <div class="image">
-          <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
-        </div>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart outline like icon"></i>
-            17 likes
-          </span>
-          <i class="comment icon"></i>
-          3 comments
-        </div>
-        <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
-      </div>
-      <div class="card">
+      <p>Please type in the input box to search for photos.</p>
+    </div>
+
+    <div class="ui four cards" *ngIf="data">
+      <div class="card" *ngFor="let photo of data.photos">
         <div class="content">
           <div class="right floated meta">14h</div>
           <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/large/jenny.jpg"> Elliot

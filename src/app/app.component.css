@@ -1,3 +1,11 @@
-.ui.basic.segment {
-    margin-top: 50px;
+.ui.menu {
+    border-radius: 0;
+}
+
+.ui.button {
+    margin-left: 10px;
+}
+
+.ui.main {
+    min-height: 100vh;
 }
