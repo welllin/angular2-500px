@@ -9,7 +9,7 @@ export class ApiService {
     protected api: string = environment.api;
     protected key: string = environment.key;
     protected image_size = '440';
-    protected rpp = '20';
+    protected rpp = '40';
     protected sort = 'highest_rating';
 
     constructor(protected http: Http) { }

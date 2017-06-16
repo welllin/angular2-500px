@@ -27,24 +27,26 @@
     <div class="ui four cards" *ngIf="data">
       <div class="card" *ngFor="let photo of data.photos">
         <div class="content">
-          <div class="right floated meta">14h</div>
-          <img class="ui avatar image" src="https://semantic-ui.com/images/avatar/large/jenny.jpg"> Elliot
+          <div class="right floated meta">{{photo.taken_at | amTimeAgo }}</div>
+          <img class="ui avatar image" [src]="photo.user.userpic_url"> {{photo.user.username}}
         </div>
         <div class="image">
-          <img src="https://semantic-ui.com/images/avatar/large/jenny.jpg">
+          <img [src]="photo.images[0].url">
         </div>
         <div class="content">
           <span class="right floated">
             <i class="heart outline like icon"></i>
-            17 likes
+            {{photo.favorites_count}}
           </span>
           <i class="comment icon"></i>
-          3 comments
+          {{photo.comments_count}}
         </div>
         <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
+           <div class="description" *ngIf="photo.description">
+             {{photo.description | truncate : 50}}
+          </div>
+          <div class="description" *ngIf="!photo.description">
+             no description
           </div>
         </div>
       </div>
