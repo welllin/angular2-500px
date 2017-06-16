@@ -3,21 +3,16 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { CoreModule } from 'app/core/core.module';
-
-import { AppComponent } from './app.component';
-
 @NgModule({
   declarations: [
-    AppComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    CoreModule
+    HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
-export class AppModule { }
+export class CoreModule { }
