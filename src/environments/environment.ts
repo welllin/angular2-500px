@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: 'https://api.500px.com/v1/photos/search',
+  key: 'sPvXEpW2sFrch65rpyZQf01lBHuRGkEDDROTG1r4'
 };
