@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ApiService } from 'app/core/services/api.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { HttpModule } from '@angular/http';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+      ApiService
+  ],
   bootstrap: []
 })
 export class CoreModule { }
